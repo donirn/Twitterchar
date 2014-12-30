@@ -63,9 +63,32 @@ do {
 } while ($codeResponse == 200 && $numberOfTweet > 1 && !$outOfYear2014);
 
 foreach ($charsMonth as $key => $value) {
-  print("$key: $value<br>");
+  // print("$key: $value<br>");
   $totalChars += $value;
 }
-print("-----------------------------<br>");
-print("<b>Total: $totalChars</b>");
+// print("-----------------------------<br>");
+// print("<b>Total: $totalChars</b>");
 ?>
+
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+  </head>
+  <body>
+    <div id="container">
+      <form action="result.php" method="post">
+      <input class="textbox" type="text" name="screen_name" placeholder="@<?php echo "$screen_name"; ?>">
+      <p class="result">
+        You tweeted <span><?php echo "$totalChars"; ?> character </span> on 2014. <br />
+        It's equivalent with characters in <span>Laskar Pelangi novel</span>.
+      </p>
+      <br />
+      
+      <a href="https://twitter.com/share?text=I tweeted. Count your tweets:&url=http://links" class="shareButton">
+      Share on Twitter
+      </a>
+    <!-- <input class="submitButton" type="submit" value="Share on Twitter"> -->
+    </form>
+    </div>
+  </body>
+</html>
